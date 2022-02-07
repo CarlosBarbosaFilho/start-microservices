@@ -32,30 +32,30 @@ services:
     networks:
       - spring
 
-  eureka-server:
-    image: carlosbarbosafilho/eureka-server:latest
-    container_name: eureka-server
-    ports:
-      - 8761:8761
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
+#  eureka-server:
+#    image: carlosbarbosafilho/eureka-server:latest
+#    container_name: eureka-server
+#    ports:
+#      - 8761:8761
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
 
-  api-gateway:
-    image: carlosbarbosafilho/api-gateway:latest
-    container_name: api-gateway
-    ports:
-      - 8083:8083
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    networks:
-      - spring
-    depends_on:
-      - zipkin
-      - eureka-server
+#  api-gateway:
+#    image: carlosbarbosafilho/api-gateway:latest
+#    container_name: api-gateway
+#    ports:
+#      - 8083:8083
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    networks:
+#      - spring
+#    depends_on:
+#      - zipkin
+#      - eureka-server
   microservice-customer:
     image: carlosbarbosafilho/customer:latest
     container_name: customer

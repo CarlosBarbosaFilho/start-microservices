@@ -6,7 +6,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(value = "notification", url = "http://notification-service:8084/api/v1/notifications")
+@FeignClient(
+        //value = "notification", url = "http://notification-service:8084/api/v1/notifications"
+        name = "notification",
+        url = "${clients.notification.url}"
+)
 public interface NotificationService {
 
     @LoadBalanced
